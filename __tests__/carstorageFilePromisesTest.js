@@ -22,5 +22,8 @@ describe('Testing with key "licence" and value "ABC-1" to resolve', () => {
         .resolves.toEqual(result);
     });
     
-    
+    test('resolves with async', async ()=>{
+        await expect(search('licence','ABC-1'))
+        .resolves.toEqual(result);
+    })
 });
