@@ -21,7 +21,8 @@ function search(key,value){
                     resolve(found);
                 }
                 else{
-                    resolve(cars);
+                    // resolve(cars);
+                    reject('parameter missing');
                 }
             }
         })
