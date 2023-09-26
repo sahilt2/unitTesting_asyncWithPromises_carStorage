@@ -53,3 +53,42 @@ describe('Testing with licence to reject', () => {
     });   
 });
 
+describe('test with key "model"', () => {
+    const resultForBoredTmodel = [
+        {
+            "model":"Bored T-model","licence":"ABC-1"
+        },
+        {
+            "model":"Bored T-model","licence":"GTF-10"
+        }
+    ];
+
+    const resultForNova = [
+        {
+            "model":"Nova","licence":"XYZ-123"
+        }
+    ];
+
+    test('model "Bored T-model" ', () => {
+        return expect(search('model','Bored T-model'))
+        .resolves.toEqual(resultForBoredTmodel)
+    });
+    
+    test('model "Nova" ', () => {
+        return expect(search('model','Nova'))
+        .resolves.toEqual(resultForNova)
+    });
+    
+    test('one parameter missing',()=>{
+        return expect(search('model'))
+        .rejects.toBe('parameter missing');
+    });
+
+    test('search with licence "X" ', () => {
+        return expect(search('licence','X'))
+        .resolves.toEqual([]);
+    });
+    
+});
+
+
