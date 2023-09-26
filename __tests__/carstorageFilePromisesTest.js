@@ -17,5 +17,10 @@ describe('Testing with key "licence" and value "ABC-1" to resolve', () => {
         const data= await search('licence','ABC-1');
         expect(data).toEqual(result);
     })
+    test('resolves', () => {
+        return expect(search('licence','ABC-1'))
+        .resolves.toEqual(result);
+    });
+    
     
 });
